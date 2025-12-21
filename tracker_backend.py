@@ -3,19 +3,18 @@ import feedparser
 import json
 import re
 import os
+import sys  # Added sys
 from datetime import datetime
 from dateutil import parser
-from typing import List, Dict
 
 # --- CONFIGURATION ---
 GITHUB_API_URL = "https://api.github.com/repos/hashicorp/terraform-provider-aws/releases"
+# Primary and Backup feeds
 AWS_RSS_FEED = "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
-OUTPUT_FILE = "r2c_lag_data.json"
 
-# Headers to prevent 403s
 HEADERS = {
-    'User-Agent': 'Rack2Cloud-Lag-Tracker/1.0',
-    'Accept': 'application/vnd.github.v3+json'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+    'Accept': 'application/json'
 }
 
 class FeatureRecord:
@@ -43,16 +42,20 @@ class FeatureRecord:
         }
 
 def fetch_aws_data():
-    print(f"📡 Fetching AWS Feed from {AWS_RSS_FEED}...")
+    print(f"📡 Fetching AWS Feed...")
+    # Try parsing directly
     feed = feedparser.parse(AWS_RSS_FEED)
-    records = []
     
-    # Process last 30 entries
+    # Validation: Check if feed has entries
+    if not feed.entries:
+        print("⚠️ AWS RSS Feed empty or blocked.")
+        return []
+        
+    records = []
     for entry in feed.entries[:30]:
         title = entry.title
         link = entry.link
         
-        # Simple Service Extraction Heuristic
         service = "General"
         if "Amazon" in title:
             try:
@@ -88,27 +91,20 @@ def fetch_terraform_data():
     return releases
 
 def match_features(features, releases):
-    print("⚙️ Matching Features to Provider Versions...")
-    
+    print("⚙️ Matching Features...")
     for feat in features:
-        # Sort releases by date
-        sorted_releases = sorted(releases, key=lambda x: x['date'])
+        valid_releases = [r for r in releases if r['date'] >= feat.ga_date]
+        valid_releases.sort(key=lambda x: x['date'])
         
-        # Only look for releases AFTER the feature GA date
-        valid_releases = [r for r in sorted_releases if r['date'] >= feat.ga_date]
-        
-        # Simple Token Matching
         feat_tokens = set(re.findall(r'\w+', feat.feature.lower())) - {'amazon', 'aws', 'now', 'supports', 'available', 'introducing'}
         
         best_match = None
-        
         for release in valid_releases:
             body_lower = release['body'].lower()
-            # Check for token overlap
             hits = sum(1 for t in feat_tokens if t in body_lower)
             score = hits / len(feat_tokens) if feat_tokens else 0
             
-            if score > 0.4: # Match threshold
+            if score > 0.4:
                 best_match = release
                 break
         
@@ -121,29 +117,32 @@ def match_features(features, releases):
             feat.tf_status = "Not Supported"
             feat.lag_days = (datetime.now(feat.ga_date.tzinfo) - feat.ga_date).days
 
-    return features
-
 def main():
     try:
         features = fetch_aws_data()
         releases = fetch_terraform_data()
         
-        if not features or not releases:
-            print("❌ Data fetch failed. Aborting.")
-            return
+        # CRITICAL FIX: Exit with error if data is empty so Action fails
+        if not features:
+            print("❌ Error: No AWS features found. Check RSS Feed URL.")
+            sys.exit(1)
+            
+        if not releases:
+            print("❌ Error: No Terraform releases found. Check GitHub API.")
+            sys.exit(1)
 
         match_features(features, releases)
         
         data_out = [f.to_dict() for f in features]
         
-        with open(OUTPUT_FILE, 'w') as f:
+        with open("r2c_lag_data.json", 'w') as f:
             json.dump(data_out, f, indent=2)
             
-        print(f"✅ Success! Wrote {len(data_out)} records to {OUTPUT_FILE}")
+        print(f"✅ Success! Wrote {len(data_out)} records to r2c_lag_data.json")
         
     except Exception as e:
-        print(f"❌ Critical Error: {str(e)}")
-        exit(1)
+        print(f"❌ Critical Exception: {str(e)}")
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
