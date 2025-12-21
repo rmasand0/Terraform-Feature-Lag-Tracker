@@ -2,19 +2,38 @@ import requests
 import feedparser
 import json
 import re
-import os
-import sys  # Added sys
+import sys
+import time
 from datetime import datetime
 from dateutil import parser
 
-# --- CONFIGURATION ---
-GITHUB_API_URL = "https://api.github.com/repos/hashicorp/terraform-provider-aws/releases"
-# Primary and Backup feeds
-AWS_RSS_FEED = "https://aws.amazon.com/about-aws/whats-new/recent/feed/"
+# --- CONFIGURATION HUB ---
+CLOUD_CONFIG = {
+    "aws": {
+        "rss": "https://aws.amazon.com/about-aws/whats-new/recent/feed/",
+        "tf_repo": "hashicorp/terraform-provider-aws",
+        "stop_words": {'amazon', 'aws', 'now', 'supports', 'available', 'introducing', 'general', 'availability', 'for', 'with', 'announcing'},
+        "service_heuristic": "Amazon (.*?) "
+    },
+    "azure": {
+        "rss": "https://azurecomcdn.azureedge.net/en-us/updates/feed/",
+        "tf_repo": "hashicorp/terraform-provider-azurerm",
+        "stop_words": {'azure', 'microsoft', 'public', 'preview', 'general', 'availability', 'now', 'available', 'support', 'in'},
+        "service_heuristic": "Azure (.*?) "
+    },
+    "gcp": {
+        "rss": "https://cloud.google.com/feeds/gcp-release-notes.xml",
+        "tf_repo": "hashicorp/terraform-provider-google",
+        "stop_words": {'google', 'cloud', 'platform', 'gcp', 'beta', 'ga', 'release', 'notes', 'available', 'support'},
+        "service_heuristic": "^(.*?):" # GCP often starts with "Cloud Spanner: ..."
+    }
+}
 
+GITHUB_API_BASE = "https://api.github.com/repos"
+OUTPUT_FILE = "r2c_lag_data.json"
 HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-    'Accept': 'application/json'
+    'User-Agent': 'Rack2Cloud-Bot/2.0',
+    'Accept': 'application/vnd.github.v3+json'
 }
 
 class FeatureRecord:
@@ -29,10 +48,12 @@ class FeatureRecord:
         self.lag_days = 0
 
     def to_dict(self):
+        # Create a unique ID based on the feature name
+        clean_name = re.sub(r'[^a-zA-Z0-9]', '-', self.feature[:20]).lower()
         return {
-            "id": re.sub(r'[^a-zA-Z0-9]', '-', f"{self.cloud}-{self.service}-{self.feature[:15]}").lower(),
+            "id": f"{self.cloud}-{clean_name}",
             "cloud": self.cloud,
-            "service": self.service,
+            "service": self.service[:20], # Truncate for UI
             "feature": self.feature,
             "link": self.link,
             "status": self.tf_status,
@@ -41,70 +62,98 @@ class FeatureRecord:
             "date": self.ga_date.strftime("%Y-%m-%d")
         }
 
-def fetch_aws_data():
-    print(f"📡 Fetching AWS Feed...")
-    # Try parsing directly
-    feed = feedparser.parse(AWS_RSS_FEED)
-    
-    # Validation: Check if feed has entries
-    if not feed.entries:
-        print("⚠️ AWS RSS Feed empty or blocked.")
-        return []
-        
-    records = []
-    for entry in feed.entries[:30]:
-        title = entry.title
-        link = entry.link
-        
-        service = "General"
-        if "Amazon" in title:
+def fetch_feed(cloud_name, config):
+    print(f"📡 [{cloud_name.upper()}] Fetching Cloud Feed...")
+    try:
+        feed = feedparser.parse(config['rss'])
+        if not feed.entries:
+            print(f"   ⚠️ Warning: {cloud_name} feed is empty.")
+            return []
+            
+        records = []
+        # Process last 15 entries per cloud to keep JSON size manageable
+        for entry in feed.entries[:15]:
+            title = entry.title
+            
+            # Smart Service Extraction
+            service = "General"
+            match = re.search(config['service_heuristic'], title)
+            if match:
+                service = match.group(1).replace(",", "").strip()
+            
+            # Date Parsing fallback
             try:
-                parts = title.split("Amazon ")
-                if len(parts) > 1:
-                    service = parts[1].split(" ")[0].replace(",", "")
+                dt = parser.parse(entry.published)
             except:
-                pass
-        
-        records.append(FeatureRecord(
-            cloud="aws",
-            service=service,
-            feature=title,
-            date=parser.parse(entry.published),
-            link=link
-        ))
-    return records
+                dt = datetime.now()
 
-def fetch_terraform_data():
-    print("📦 Fetching Terraform Releases...")
-    response = requests.get(GITHUB_API_URL, headers=HEADERS)
-    if response.status_code != 200:
-        print(f"⚠️ GitHub API Error: {response.status_code}")
+            records.append(FeatureRecord(
+                cloud=cloud_name,
+                service=service,
+                feature=title,
+                date=dt,
+                link=entry.link
+            ))
+        return records
+    except Exception as e:
+        print(f"   ❌ Error fetching {cloud_name}: {e}")
         return []
-    
-    releases = []
-    for item in response.json():
-        releases.append({
-            "version": item['tag_name'],
-            "date": parser.parse(item['published_at']),
-            "body": item['body'] or ""
-        })
-    return releases
 
-def match_features(features, releases):
-    print("⚙️ Matching Features...")
+def fetch_tf_releases(repo):
+    print(f"📦 [{repo}] Fetching Terraform Releases...")
+    url = f"{GITHUB_API_BASE}/{repo}/releases"
+    try:
+        resp = requests.get(url, headers=HEADERS)
+        if resp.status_code != 200:
+            print(f"   ⚠️ GitHub API Error: {resp.status_code}")
+            return []
+            
+        data = []
+        for item in resp.json():
+            data.append({
+                "version": item.get('tag_name', 'v0.0.0'),
+                "date": parser.parse(item['published_at']),
+                "body": (item.get('body') or "").lower()
+            })
+        return data
+    except Exception as e:
+        print(f"   ❌ Error fetching releases: {e}")
+        return []
+
+def process_cloud(cloud_name, config):
+    # 1. Get Cloud Features
+    features = fetch_feed(cloud_name, config)
+    if not features: return []
+
+    # 2. Get TF Releases
+    releases = fetch_tf_releases(config['tf_repo'])
+    if not releases: return []
+
+    # 3. Match
+    print(f"⚙️ [{cloud_name.upper()}] Matching {len(features)} features against {len(releases)} releases...")
+    
     for feat in features:
-        valid_releases = [r for r in releases if r['date'] >= feat.ga_date]
-        valid_releases.sort(key=lambda x: x['date'])
+        # Sort releases by date
+        releases.sort(key=lambda x: x['date'])
         
-        feat_tokens = set(re.findall(r'\w+', feat.feature.lower())) - {'amazon', 'aws', 'now', 'supports', 'available', 'introducing'}
+        # Only check releases AFTER the feature dropped
+        valid_releases = [r for r in releases if r['date'] >= feat.ga_date]
+        
+        # Tokenize feature title
+        raw_tokens = re.findall(r'\w+', feat.feature.lower())
+        tokens = set(raw_tokens) - config['stop_words']
         
         best_match = None
+        
         for release in valid_releases:
-            body_lower = release['body'].lower()
-            hits = sum(1 for t in feat_tokens if t in body_lower)
-            score = hits / len(feat_tokens) if feat_tokens else 0
+            hits = 0
+            for t in tokens:
+                if t in release['body']:
+                    hits += 1
             
-            if score > 0.4:
+            score = hits / len(tokens) if tokens else 0
+            
+            if score > 0.45: # Strictness threshold
                 best_match = release
                 break
         
@@ -115,34 +164,28 @@ def match_features(features, releases):
             feat.lag_days = lag if lag >= 0 else 0
         else:
             feat.tf_status = "Not Supported"
-            feat.lag_days = (datetime.now(feat.ga_date.tzinfo) - feat.ga_date).days
+            # Calc lag until today
+            now = datetime.now(feat.ga_date.tzinfo)
+            feat.lag_days = (now - feat.ga_date).days
+
+    return [f.to_dict() for f in features]
 
 def main():
-    try:
-        features = fetch_aws_data()
-        releases = fetch_terraform_data()
-        
-        # CRITICAL FIX: Exit with error if data is empty so Action fails
-        if not features:
-            print("❌ Error: No AWS features found. Check RSS Feed URL.")
-            sys.exit(1)
-            
-        if not releases:
-            print("❌ Error: No Terraform releases found. Check GitHub API.")
-            sys.exit(1)
+    all_data = []
+    
+    for cloud, config in CLOUD_CONFIG.items():
+        data = process_cloud(cloud, config)
+        all_data.extend(data)
+        time.sleep(1) # Be nice to APIs
 
-        match_features(features, releases)
-        
-        data_out = [f.to_dict() for f in features]
-        
-        with open("r2c_lag_data.json", 'w') as f:
-            json.dump(data_out, f, indent=2)
-            
-        print(f"✅ Success! Wrote {len(data_out)} records to r2c_lag_data.json")
-        
-    except Exception as e:
-        print(f"❌ Critical Exception: {str(e)}")
+    if not all_data:
+        print("❌ No data collected from any cloud.")
         sys.exit(1)
+
+    with open(OUTPUT_FILE, 'w') as f:
+        json.dump(all_data, f, indent=2)
+    
+    print(f"✅ Success! Wrote {len(all_data)} records (AWS/Azure/GCP) to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
     main()
