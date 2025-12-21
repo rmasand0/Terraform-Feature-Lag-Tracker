@@ -1,12 +1,10 @@
 name: Daily Lag Tracker Refresh
 
-# Trigger: Runs at 08:00 UTC every day + allows manual button click
 on:
   schedule:
-    - cron: '0 8 * * *'
-  workflow_dispatch:
+    - cron: '0 8 * * *'  # Runs at 8 AM UTC daily
+  workflow_dispatch:      # Allows manual "Run Now" button
 
-# Permissions: Grant the bot rights to write back to the repo
 permissions:
   contents: write
 
@@ -15,40 +13,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository code
       - name: Checkout Repo
         uses: actions/checkout@v4
 
-      # Step 2: Set up Python environment
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      # Step 3: Install the libraries
       - name: Install Dependencies
         run: |
-          python -m pip install --upgrade pip
           pip install requests feedparser python-dateutil
 
-      # Step 4: Run the Tracker Backend Script
-      # Ensure your python file is named 'tracker_backend.py' in the root
-      - name: Run Ingestion Pipeline
+      - name: Run Ingestion Script
         run: python tracker_backend.py
 
-      # Step 5: Commit and Push the updated JSON
-      # This step only runs if there are changes to the file
       - name: Commit and Push Changes
         run: |
           git config --global user.name "Rack2Cloud Bot"
           git config --global user.email "bot@rack2cloud.com"
           
-          # Check if data.json changed
+          # Check if json file exists and has changed
           if [[ -n $(git status --porcelain r2c_lag_data.json) ]]; then
             echo "Changes detected. Committing..."
             git add r2c_lag_data.json
             git commit -m "data: daily lag tracker update [skip ci]"
             git push
           else
-            echo "No changes in lag data today."
+            echo "No data changes today."
           fi
