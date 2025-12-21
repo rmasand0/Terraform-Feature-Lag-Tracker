@@ -16,30 +16,42 @@ CLOUD_CONFIG = {
         "service_heuristic": "Amazon (.*?) "
     },
     "azure": {
-        # RETRY STRATEGY: Try these 3 URLs in order until one works
         "urls": [
-            "https://azurecomcdn.azureedge.net/en-us/updates/feed/", # CDN (Often fastest)
-            "https://azure.microsoft.com/en-us/updates/feed/",       # Main
-            "https://azure.microsoft.com/en-us/blog/feed/"           # Backup (Blog)
+            "https://azurecomcdn.azureedge.net/en-us/updates/feed/", 
+            "https://azure.microsoft.com/en-us/updates/feed/",       
+            "https://azure.microsoft.com/en-us/blog/feed/"           
         ],
         "tf_repo": "hashicorp/terraform-provider-azurerm",
-        "stop_words": {'azure', 'microsoft', 'public', 'preview', 'general', 'availability', 'now', 'available', 'support', 'in', 'generally'},
+        "stop_words": {'azure', 'microsoft', 'public', 'preview', 'general', 'availability', 'now', 'available', 'support', 'in', 'generally', 'updates', 'update'},
         "service_heuristic": "Azure (.*?) "
     },
     "gcp": {
         "urls": ["https://cloud.google.com/feeds/gcp-release-notes.xml"],
         "tf_repo": "hashicorp/terraform-provider-google",
-        "stop_words": {'google', 'cloud', 'platform', 'gcp', 'beta', 'ga', 'release', 'notes', 'available', 'support'},
+        "stop_words": {'google', 'cloud', 'platform', 'gcp', 'beta', 'ga', 'release', 'notes', 'available', 'support', 'feature', 'launch', 'new'},
         "service_heuristic": "^(.*?):" 
     }
+}
+
+# Synonyms to help matching (Marketing Name -> Technical Name)
+SYNONYMS = {
+    "compute engine": "compute",
+    "kubernetes engine": "container",
+    "cloud storage": "storage",
+    "cloud sql": "sql",
+    "cloud run": "cloudrun",
+    "bigquery": "bigquery",
+    "security command center": "scc",
+    "vpc service controls": "vpcsc",
+    "cloud functions": "cloudfunctions",
+    "artifact registry": "artifactregistry"
 }
 
 GITHUB_API_BASE = "https://api.github.com/repos"
 OUTPUT_FILE = "r2c_lag_data.json"
 
-# Generic Headers often work better for RSS than spoofed Chrome headers
 HEADERS = {
-    'User-Agent': 'Rack2Cloud-Bot/1.0',
+    'User-Agent': 'Rack2Cloud-Bot/1.2',
     'Accept': 'application/rss+xml, application/xml, text/xml, */*'
 }
 
@@ -61,11 +73,11 @@ class FeatureRecord:
         self.lag_days = 0
 
     def to_dict(self):
-        clean_name = re.sub(r'[^a-zA-Z0-9]', '-', self.feature[:20]).lower()
+        clean_name = re.sub(r'[^a-zA-Z0-9]', '-', self.feature[:25]).lower()
         return {
             "id": f"{self.cloud}-{clean_name}",
             "cloud": self.cloud,
-            "service": self.service[:20], 
+            "service": self.service[:25], 
             "feature": self.feature,
             "link": self.link,
             "status": self.tf_status,
@@ -76,39 +88,26 @@ class FeatureRecord:
 
 def fetch_feed_with_failover(cloud_name, config):
     print(f"📡 [{cloud_name.upper()}] Fetching Cloud Feed...")
-    
     valid_entries = []
     
-    # Try every URL in the list
     for url in config['urls']:
         try:
-            print(f"   👉 Trying: {url} ...")
-            resp = requests.get(url, headers=HEADERS, timeout=10)
+            resp = requests.get(url, headers=HEADERS, timeout=15)
+            if resp.status_code != 200: continue
             
-            if resp.status_code != 200:
-                print(f"      ⚠️ Failed (HTTP {resp.status_code})")
-                continue
-                
             feed = feedparser.parse(resp.content)
-            
-            if not feed.entries:
-                print(f"      ⚠️ Parsed as empty (Soft Block?)")
-                continue
+            if not feed.entries: continue
                 
-            # If we get here, we have data!
             print(f"      ✅ Success! Found {len(feed.entries)} items.")
-            valid_entries = feed.entries[:20] # Take top 20
-            break # Stop trying other URLs
-            
-        except Exception as e:
-            print(f"      ❌ Error: {e}")
+            valid_entries = feed.entries[:25] # Increased to 25
+            break
+        except:
             continue
             
     if not valid_entries:
         print(f"   ❌ ALL URLs FAILED for {cloud_name}.")
         return []
 
-    # Process the valid entries
     records = []
     for entry in valid_entries:
         title = entry.title
@@ -120,19 +119,12 @@ def fetch_feed_with_failover(cloud_name, config):
             service = match.group(1).replace(",", "").strip()
         
         try:
-            # Try multiple date fields
             date_str = entry.get('updated', entry.get('published', entry.get('date')))
             dt = parser.parse(date_str)
         except:
             dt = datetime.now(timezone.utc)
 
-        records.append(FeatureRecord(
-            cloud=cloud_name,
-            service=service,
-            feature=title,
-            date=dt,
-            link=link
-        ))
+        records.append(FeatureRecord(cloud_name, service, title, dt, link))
     return records
 
 def fetch_tf_releases(repo):
@@ -140,8 +132,7 @@ def fetch_tf_releases(repo):
     url = f"{GITHUB_API_BASE}/{repo}/releases"
     try:
         resp = requests.get(url, headers=HEADERS)
-        if resp.status_code != 200:
-            return []
+        if resp.status_code != 200: return []
         data = []
         for item in resp.json():
             try:
@@ -160,22 +151,40 @@ def process_cloud(cloud_name, config):
     if not features: return []
 
     releases = fetch_tf_releases(config['tf_repo'])
+    
     if releases:
         releases.sort(key=lambda x: x['date'])
         for feat in features:
             valid_releases = [r for r in releases if r['date'] >= feat.ga_date]
             
+            # --- IMPROVED MATCHING LOGIC ---
             raw_tokens = re.findall(r'\w+', feat.feature.lower())
             tokens = set(raw_tokens) - config['stop_words']
             
+            # Check for Service Synonym (Boost factor)
+            service_token = SYNONYMS.get(feat.service.lower(), feat.service.lower())
+            
             best_match = None
+            
             for release in valid_releases:
                 hits = 0
-                for t in tokens:
-                    if t in release['body']: hits += 1
+                body = release['body']
                 
+                # 1. Does the service name appear in the changelog? (Big Boost)
+                service_match = service_token in body
+                
+                for t in tokens:
+                    if t in body: hits += 1
+                
+                # 2. Calculate Score
                 score = hits / len(tokens) if tokens else 0
-                if score > 0.45: 
+                
+                # 3. Dynamic Thresholds
+                # If service name is found, we accept a lower token match (0.25)
+                # If not, we require a higher token match (0.35)
+                threshold = 0.25 if service_match else 0.35
+                
+                if score >= threshold: 
                     best_match = release
                     break
             
@@ -199,17 +208,16 @@ def main():
             all_data.extend(data)
             time.sleep(1)
         except Exception as e:
-            print(f"❌ CRITICAL ERROR processing {cloud}: {e}")
+            print(f"❌ ERROR {cloud}: {e}")
             continue
 
     if not all_data:
-        print("❌ No data collected from any cloud.")
         sys.exit(1)
 
     with open(OUTPUT_FILE, 'w') as f:
         json.dump(all_data, f, indent=2)
     
-    print(f"✅ Success! Wrote {len(all_data)} total records to {OUTPUT_FILE}")
+    print(f"✅ Success! Wrote {len(all_data)} records.")
 
 if __name__ == "__main__":
     main()
