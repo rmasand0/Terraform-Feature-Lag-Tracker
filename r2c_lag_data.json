@@ -51,7 +51,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/bedrock-data-automation-optimization-document-blueprints/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2025-12-19"
   },
   {
@@ -62,7 +62,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/timestream-influxdb-restart-api",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2025-12-19"
   },
   {
@@ -73,7 +73,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/cost-allocation-tags/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2025-12-19"
   },
   {
@@ -84,7 +84,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-ecr-creating-repositories-on-push/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2025-12-19"
   },
   {
@@ -95,7 +95,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-iot-event-based-logging/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2025-12-19"
   },
   {
@@ -106,7 +106,7 @@
     "link": "https://aws.amazon.comabout-aws/whats-new/2025/12/amazon-workspaces-applications-supports-microsoft-windows-server",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2025-12-19"
   },
   {
@@ -117,7 +117,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/redshift-odbc-2-x-driver-apple-macos/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2025-12-19"
   },
   {
@@ -128,7 +128,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/zero-etl-for-self-managed-databases-in-additional-regions",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2025-12-19"
   },
   {
@@ -139,7 +139,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_19_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2025-12-19"
   },
   {
@@ -238,7 +238,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/ec2-r8i-r8i-flex-instances-additional-regions/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-18"
   },
   {
@@ -249,7 +249,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/lambda-durable-functions-14-additional-regions/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-18"
   },
   {
@@ -260,7 +260,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/direct-connect-resilience-testing-fault-injection-service/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-18"
   },
   {
@@ -271,7 +271,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/clean-rooms-change-requests-existing-collaborations/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-18"
   },
   {
@@ -282,7 +282,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/176-security-hub-controls-control-tower/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-18"
   },
   {
@@ -293,7 +293,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/ecs-weekly-windows-scheduling-task-retirements-fargate/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-18"
   },
   {
@@ -304,7 +304,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-neptune-zurich-region",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-18"
   },
   {
@@ -315,7 +315,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-ses-email-validation/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-18"
   },
   {
@@ -326,7 +326,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-msk-express-brokers-support-kraft/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-18"
   },
   {
@@ -337,7 +337,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_18_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-18"
   },
   {
@@ -425,7 +425,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_17_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2025-12-17"
   },
   {
@@ -469,7 +469,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_14_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 7,
+    "lag": 8,
     "date": "2025-12-14"
   },
   {
@@ -524,7 +524,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_11_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 10,
+    "lag": 11,
     "date": "2025-12-11"
   },
   {
@@ -601,7 +601,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_06_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 15,
+    "lag": 16,
     "date": "2025-12-06"
   },
   {
@@ -612,7 +612,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_05_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 16,
+    "lag": 17,
     "date": "2025-12-05"
   },
   {
@@ -623,7 +623,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_04_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 17,
+    "lag": 18,
     "date": "2025-12-04"
   },
   {
@@ -645,7 +645,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_03_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 18,
+    "lag": 19,
     "date": "2025-12-03"
   },
   {
@@ -678,7 +678,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_02_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 19,
+    "lag": 20,
     "date": "2025-12-02"
   },
   {
@@ -700,7 +700,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_01_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 20,
+    "lag": 21,
     "date": "2025-12-01"
   },
   {
@@ -810,7 +810,7 @@
     "link": "https://docs.cloud.google.com/release-notes#November_19_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 32,
+    "lag": 33,
     "date": "2025-11-19"
   },
   {
