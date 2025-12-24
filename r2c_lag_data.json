@@ -1,5 +1,137 @@
 [
   {
+    "id": "aws-oracle-database-aws-is-no",
+    "cloud": "aws",
+    "service": "General",
+    "feature": "Oracle Database@AWS is now available in three additional AWS Regions",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/oracle-database-aws-available-three-additional-regions/",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 0,
+    "date": "2025-12-23"
+  },
+  {
+    "id": "aws-nvidia-nemotron-3-nano-no",
+    "cloud": "aws",
+    "service": "",
+    "feature": "NVIDIA Nemotron 3 Nano now available on Amazon Bedrock",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/nvidia-nemotron-3-nano-amazon-bedrock",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 0,
+    "date": "2025-12-23"
+  },
+  {
+    "id": "aws-amazon-msk-expands-standa",
+    "cloud": "aws",
+    "service": "",
+    "feature": "Amazon MSK expands Standard Brokers and Express Brokers to Asia Pacific (New Zealand) Region",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-msk-additional-aws-region/",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 0,
+    "date": "2025-12-23"
+  },
+  {
+    "id": "aws-amazon-workspaces-secure-",
+    "cloud": "aws",
+    "service": "",
+    "feature": "Amazon WorkSpaces Secure Browser now supports WebAuthn redirection for local Chromium browsers",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-workspaces-secure-browser-webauthn-redirection-chromium-browsers",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 0,
+    "date": "2025-12-23"
+  },
+  {
+    "id": "aws-amazon-rds-for-mysql-anno",
+    "cloud": "aws",
+    "service": "",
+    "feature": "Amazon RDS for MySQL announces Innovation Release 9.5 in Amazon RDS Database Preview Environment",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-rds-mysql-innovation-release/",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 0,
+    "date": "2025-12-23"
+  },
+  {
+    "id": "aws-aws-secrets-manager-annou",
+    "cloud": "aws",
+    "service": "General",
+    "feature": "AWS Secrets Manager announces improved secret sorting capabilities",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-secrets-manager-secret-sorting-capabilities",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 0,
+    "date": "2025-12-23"
+  },
+  {
+    "id": "aws-minimax-m2-is-now-availab",
+    "cloud": "aws",
+    "service": "",
+    "feature": "MiniMax-M2 is now available on Amazon SageMaker JumpStart",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/minimax-m2-on-sagemaker-jumpstart",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 0,
+    "date": "2025-12-23"
+  },
+  {
+    "id": "aws-aws-transform-enables-net",
+    "cloud": "aws",
+    "service": "General",
+    "feature": "AWS Transform enables network conversion for hybrid data center migrations",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-transform-hybrid-network-migration/",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 0,
+    "date": "2025-12-23"
+  },
+  {
+    "id": "aws-amazon-workspaces-secure-",
+    "cloud": "aws",
+    "service": "",
+    "feature": "Amazon WorkSpaces Secure Browser enables branding customization",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-workspaces-secure-browser-enables-branding/",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 1,
+    "date": "2025-12-23"
+  },
+  {
+    "id": "aws-amazon-redshift-supports-",
+    "cloud": "aws",
+    "service": "",
+    "feature": "Amazon Redshift supports four new materialized view (MV) features on data shares",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-redshift-mv-datasharing-features",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 1,
+    "date": "2025-12-23"
+  },
+  {
+    "id": "aws-aws-end-user-messaging-sm",
+    "cloud": "aws",
+    "service": "General",
+    "feature": "AWS End User Messaging SMS launches a Generative AI Registration Reviewer (Preview)",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/end-user-messaging-sms-ai-registration-reviewer/",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 1,
+    "date": "2025-12-23"
+  },
+  {
+    "id": "gcp-december-23--2025",
+    "cloud": "gcp",
+    "service": "General",
+    "feature": "December 23, 2025",
+    "link": "https://docs.cloud.google.com/release-notes#December_23_2025",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 1,
+    "date": "2025-12-23"
+  },
+  {
     "id": "aws-aws-deadline-cloud-now-su",
     "cloud": "aws",
     "service": "General",
@@ -7,7 +139,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-deadline-cloud-direct-job-submission-from/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 0,
+    "lag": 1,
     "date": "2025-12-22"
   },
   {
@@ -18,7 +150,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/oracle-database-aws-marketplace-entitlements-across-accounts/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 0,
+    "lag": 1,
     "date": "2025-12-22"
   },
   {
@@ -29,7 +161,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-ecs-service-connect-observability-envoy-access-logs",
     "status": "Not Supported",
     "version": "--",
-    "lag": 0,
+    "lag": 1,
     "date": "2025-12-22"
   },
   {
@@ -40,7 +172,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-kinesis-video-streams-webrtc-ipv6/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 0,
+    "lag": 1,
     "date": "2025-12-22"
   },
   {
@@ -51,7 +183,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-gameliftstream-performance-stats-error-messaging",
     "status": "Not Supported",
     "version": "--",
-    "lag": 0,
+    "lag": 1,
     "date": "2025-12-22"
   },
   {
@@ -62,7 +194,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-gameliftstream-gen6-enhanced-autoscaling",
     "status": "Not Supported",
     "version": "--",
-    "lag": 0,
+    "lag": 1,
     "date": "2025-12-22"
   },
   {
@@ -73,7 +205,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/research-engineering-studio-aws-new-version-available/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 0,
+    "lag": 1,
     "date": "2025-12-22"
   },
   {
@@ -84,7 +216,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-storage-gateway-nutanix-avh-hypervisor",
     "status": "Not Supported",
     "version": "--",
-    "lag": 0,
+    "lag": 1,
     "date": "2025-12-22"
   },
   {
@@ -95,7 +227,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/announcing-aws-neuron-2-27",
     "status": "Not Supported",
     "version": "--",
-    "lag": 1,
+    "lag": 2,
     "date": "2025-12-22"
   },
   {
@@ -106,7 +238,7 @@
     "link": "https://aws.amazon.comabout-aws/whats-new/2025/12/aws-wickr-admin-apis-generally-available/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 1,
+    "lag": 2,
     "date": "2025-12-22"
   },
   {
@@ -117,7 +249,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_22_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 1,
+    "lag": 2,
     "date": "2025-12-22"
   },
   {
@@ -128,7 +260,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_20_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-20"
   },
   {
@@ -139,7 +271,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-application-recovery-controller-region-switch-new-capabilities",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-19"
   },
   {
@@ -150,7 +282,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-private-ca-ocsp-china-govcloud-us-regions",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-19"
   },
   {
@@ -161,7 +293,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-sagemaker-nbi-soci/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-19"
   },
   {
@@ -172,7 +304,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-rds-observability-snapshot-exports-s3",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2025-12-19"
   },
   {
@@ -183,7 +315,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/bedrock-data-automation-optimization-document-blueprints/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2025-12-19"
   },
   {
@@ -194,7 +326,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/timestream-influxdb-restart-api",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2025-12-19"
   },
   {
@@ -205,7 +337,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/cost-allocation-tags/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2025-12-19"
   },
   {
@@ -216,7 +348,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-ecr-creating-repositories-on-push/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2025-12-19"
   },
   {
@@ -227,7 +359,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-iot-event-based-logging/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2025-12-19"
   },
   {
@@ -238,7 +370,7 @@
     "link": "https://aws.amazon.comabout-aws/whats-new/2025/12/amazon-workspaces-applications-supports-microsoft-windows-server",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2025-12-19"
   },
   {
@@ -249,7 +381,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/redshift-odbc-2-x-driver-apple-macos/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2025-12-19"
   },
   {
@@ -260,7 +392,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/zero-etl-for-self-managed-databases-in-additional-regions",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2025-12-19"
   },
   {
@@ -271,7 +403,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_19_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2025-12-19"
   },
   {
@@ -282,7 +414,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-ec2-az-id-api-support",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2025-12-18"
   },
   {
@@ -293,7 +425,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-aurora-postgresql-17-7-16-11-15-15-14-20-13-23",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2025-12-18"
   },
   {
@@ -469,7 +601,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_18_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 5,
+    "lag": 6,
     "date": "2025-12-18"
   },
   {
@@ -557,7 +689,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_17_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 6,
+    "lag": 7,
     "date": "2025-12-17"
   },
   {
@@ -601,7 +733,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_14_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 9,
+    "lag": 10,
     "date": "2025-12-14"
   },
   {
@@ -656,7 +788,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_11_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 12,
+    "lag": 13,
     "date": "2025-12-11"
   },
   {
@@ -733,7 +865,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_06_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 17,
+    "lag": 18,
     "date": "2025-12-06"
   },
   {
@@ -744,7 +876,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_05_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 18,
+    "lag": 19,
     "date": "2025-12-05"
   },
   {
@@ -755,7 +887,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_04_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 19,
+    "lag": 20,
     "date": "2025-12-04"
   },
   {
@@ -777,7 +909,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_03_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 20,
+    "lag": 21,
     "date": "2025-12-03"
   },
   {
@@ -810,7 +942,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_02_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 21,
+    "lag": 22,
     "date": "2025-12-02"
   },
   {
@@ -832,7 +964,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_01_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 22,
+    "lag": 23,
     "date": "2025-12-01"
   },
   {
@@ -888,6 +1020,17 @@
     "status": "Supported",
     "version": "v7.13.0",
     "lag": 15,
+    "date": "2025-11-24"
+  },
+  {
+    "id": "azure-introducing-claude-opus-4",
+    "cloud": "azure",
+    "service": "General",
+    "feature": "Introducing Claude Opus 4.5 in Microsoft Foundry",
+    "link": "https://azure.microsoft.com/en-us/blog/introducing-claude-opus-4-5-in-microsoft-foundry/",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 29,
     "date": "2025-11-24"
   },
   {
@@ -954,6 +1097,17 @@
     "status": "Supported",
     "version": "v7.13.0",
     "lag": 21,
+    "date": "2025-11-18"
+  },
+  {
+    "id": "azure-microsoft-foundry--scale-",
+    "cloud": "azure",
+    "service": "General",
+    "feature": "Microsoft Foundry: Scale innovation on a modular, interoperable, and secure agent stack",
+    "link": "https://azure.microsoft.com/en-us/blog/microsoft-foundry-scale-innovation-on-a-modular-interoperable-and-secure-agent-stack/",
+    "status": "Supported",
+    "version": "v4.54.0",
+    "lag": 1,
     "date": "2025-11-18"
   },
   {
