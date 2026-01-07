@@ -1,5 +1,49 @@
 [
   {
+    "id": "aws-aws-marketplace-seller-re",
+    "cloud": "aws",
+    "service": "General",
+    "feature": "AWS Marketplace Seller Reporting now provides collections visibility",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/aws-marketplace-seller-reporting-collections/",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 0,
+    "date": "2026-01-06"
+  },
+  {
+    "id": "aws-amazon-ecs-now-supports-t",
+    "cloud": "aws",
+    "service": "",
+    "feature": "Amazon ECS now supports tmpfs mounts on AWS Fargate and ECS Managed Instances",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-ecs-tmpfs-mounts-aws-fargate-managed-instances",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 0,
+    "date": "2026-01-06"
+  },
+  {
+    "id": "aws-amazon-mq-now-supports-ht",
+    "cloud": "aws",
+    "service": "",
+    "feature": "Amazon MQ now supports HTTP based authentication for RabbitMQ brokers",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-mq-http-based-rabbitmq-brokers/",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 0,
+    "date": "2026-01-06"
+  },
+  {
+    "id": "aws-aws-config-now-supports-2",
+    "cloud": "aws",
+    "service": "General",
+    "feature": "AWS Config now supports 21 new resource types",
+    "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/aws-config-new-resource-types",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 0,
+    "date": "2026-01-06"
+  },
+  {
     "id": "aws-amazon-ec2-g5-instances-a",
     "cloud": "aws",
     "service": "",
@@ -7,7 +51,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-ec2-g5-now-available-asia-pacific-hong-kong",
     "status": "Not Supported",
     "version": "--",
-    "lag": 0,
+    "lag": 1,
     "date": "2026-01-05"
   },
   {
@@ -18,7 +62,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/aws-resource-explorer-aws-asia-pacific-new-zealand/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 0,
+    "lag": 1,
     "date": "2026-01-05"
   },
   {
@@ -29,7 +73,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/aws-transfer-family-asia-pacific-new-zealand-region",
     "status": "Not Supported",
     "version": "--",
-    "lag": 0,
+    "lag": 1,
     "date": "2026-01-05"
   },
   {
@@ -40,7 +84,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/ec2-capacity-manager-spot-interruption-metrics/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 1,
+    "lag": 2,
     "date": "2026-01-05"
   },
   {
@@ -49,8 +93,8 @@
     "service": "General",
     "feature": "January 05, 2026",
     "link": "https://docs.cloud.google.com/release-notes#January_05_2026",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 1,
     "date": "2026-01-05"
   },
@@ -62,7 +106,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/clean-rooms-detailed-monitoring-collaboration-queries",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2026-01-02"
   },
   {
@@ -73,7 +117,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-connect-nested-json-object-looping-arrays",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2026-01-02"
   },
   {
@@ -84,7 +128,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-waf-asia-pacific-new-zealand-region/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 6,
+    "lag": 7,
     "date": "2025-12-30"
   },
   {
@@ -95,7 +139,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-simplified-import-cloudtrail-lake-data-amazon-cloudwatch",
     "status": "Not Supported",
     "version": "--",
-    "lag": 6,
+    "lag": 7,
     "date": "2025-12-30"
   },
   {
@@ -106,7 +150,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-connect-dashboards-filtering-metrics-custom-business-dimensions",
     "status": "Not Supported",
     "version": "--",
-    "lag": 7,
+    "lag": 8,
     "date": "2025-12-29"
   },
   {
@@ -117,7 +161,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-opensearch-ui-cmk-metadata/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 8,
+    "lag": 9,
     "date": "2025-12-29"
   },
   {
@@ -126,8 +170,8 @@
     "service": "General",
     "feature": "December 29, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_29_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 8,
     "date": "2025-12-29"
   },
@@ -139,7 +183,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-connect-automated-performance-evaluations-additional-languages/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 10,
+    "lag": 11,
     "date": "2025-12-26"
   },
   {
@@ -148,8 +192,8 @@
     "service": "General",
     "feature": "December 26, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_26_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 11,
     "date": "2025-12-26"
   },
@@ -159,8 +203,8 @@
     "service": "General",
     "feature": "December 25, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_25_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 12,
     "date": "2025-12-25"
   },
@@ -170,8 +214,8 @@
     "service": "General",
     "feature": "December 24, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_24_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 13,
     "date": "2025-12-24"
   },
@@ -183,7 +227,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/oracle-database-aws-available-three-additional-regions/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 13,
+    "lag": 14,
     "date": "2025-12-23"
   },
   {
@@ -194,7 +238,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/nvidia-nemotron-3-nano-amazon-bedrock",
     "status": "Not Supported",
     "version": "--",
-    "lag": 13,
+    "lag": 14,
     "date": "2025-12-23"
   },
   {
@@ -205,7 +249,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-msk-additional-aws-region/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 13,
+    "lag": 14,
     "date": "2025-12-23"
   },
   {
@@ -216,7 +260,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-workspaces-secure-browser-webauthn-redirection-chromium-browsers",
     "status": "Not Supported",
     "version": "--",
-    "lag": 13,
+    "lag": 14,
     "date": "2025-12-23"
   },
   {
@@ -227,7 +271,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-rds-mysql-innovation-release/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 13,
+    "lag": 14,
     "date": "2025-12-23"
   },
   {
@@ -238,7 +282,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-secrets-manager-secret-sorting-capabilities",
     "status": "Not Supported",
     "version": "--",
-    "lag": 13,
+    "lag": 14,
     "date": "2025-12-23"
   },
   {
@@ -249,7 +293,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/minimax-m2-on-sagemaker-jumpstart",
     "status": "Not Supported",
     "version": "--",
-    "lag": 13,
+    "lag": 14,
     "date": "2025-12-23"
   },
   {
@@ -260,7 +304,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-transform-hybrid-network-migration/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 13,
+    "lag": 14,
     "date": "2025-12-23"
   },
   {
@@ -271,7 +315,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-workspaces-secure-browser-enables-branding/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 14,
+    "lag": 15,
     "date": "2025-12-23"
   },
   {
@@ -282,7 +326,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-redshift-mv-datasharing-features",
     "status": "Not Supported",
     "version": "--",
-    "lag": 14,
+    "lag": 15,
     "date": "2025-12-23"
   },
   {
@@ -293,7 +337,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/end-user-messaging-sms-ai-registration-reviewer/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 14,
+    "lag": 15,
     "date": "2025-12-23"
   },
   {
@@ -302,8 +346,8 @@
     "service": "General",
     "feature": "December 23, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_23_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 14,
     "date": "2025-12-23"
   },
@@ -315,7 +359,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-deadline-cloud-direct-job-submission-from/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 14,
+    "lag": 15,
     "date": "2025-12-22"
   },
   {
@@ -326,7 +370,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/oracle-database-aws-marketplace-entitlements-across-accounts/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 14,
+    "lag": 15,
     "date": "2025-12-22"
   },
   {
@@ -337,7 +381,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-ecs-service-connect-observability-envoy-access-logs",
     "status": "Not Supported",
     "version": "--",
-    "lag": 14,
+    "lag": 15,
     "date": "2025-12-22"
   },
   {
@@ -348,7 +392,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-kinesis-video-streams-webrtc-ipv6/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 14,
+    "lag": 15,
     "date": "2025-12-22"
   },
   {
@@ -359,7 +403,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-gameliftstream-performance-stats-error-messaging",
     "status": "Not Supported",
     "version": "--",
-    "lag": 14,
+    "lag": 15,
     "date": "2025-12-22"
   },
   {
@@ -370,7 +414,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-gameliftstream-gen6-enhanced-autoscaling",
     "status": "Not Supported",
     "version": "--",
-    "lag": 14,
+    "lag": 15,
     "date": "2025-12-22"
   },
   {
@@ -381,7 +425,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/research-engineering-studio-aws-new-version-available/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 14,
+    "lag": 15,
     "date": "2025-12-22"
   },
   {
@@ -392,7 +436,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/aws-storage-gateway-nutanix-avh-hypervisor",
     "status": "Not Supported",
     "version": "--",
-    "lag": 14,
+    "lag": 15,
     "date": "2025-12-22"
   },
   {
@@ -403,7 +447,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/announcing-aws-neuron-2-27",
     "status": "Not Supported",
     "version": "--",
-    "lag": 15,
+    "lag": 16,
     "date": "2025-12-22"
   },
   {
@@ -423,8 +467,8 @@
     "service": "General",
     "feature": "December 22, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_22_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 15,
     "date": "2025-12-22"
   },
@@ -434,8 +478,8 @@
     "service": "General",
     "feature": "December 20, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_20_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 17,
     "date": "2025-12-20"
   },
@@ -577,8 +621,8 @@
     "service": "General",
     "feature": "December 19, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_19_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 18,
     "date": "2025-12-19"
   },
@@ -775,8 +819,8 @@
     "service": "General",
     "feature": "December 18, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_18_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 19,
     "date": "2025-12-18"
   },
@@ -854,7 +898,7 @@
     "link": "https://azure.microsoft.com/en-us/blog/microsoft-named-a-leader-in-gartner-magic-quadrant-for-ai-application-development-platforms/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 19,
+    "lag": 20,
     "date": "2025-12-17"
   },
   {
@@ -863,8 +907,8 @@
     "service": "General",
     "feature": "December 17, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_17_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 20,
     "date": "2025-12-17"
   },
@@ -907,8 +951,8 @@
     "service": "General",
     "feature": "December 14, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_14_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 23,
     "date": "2025-12-14"
   },
@@ -962,8 +1006,8 @@
     "service": "General",
     "feature": "December 11, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_11_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 26,
     "date": "2025-12-11"
   },
@@ -1039,8 +1083,8 @@
     "service": "General",
     "feature": "December 06, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_06_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 31,
     "date": "2025-12-06"
   },
@@ -1050,8 +1094,8 @@
     "service": "General",
     "feature": "December 05, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_05_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 32,
     "date": "2025-12-05"
   },
@@ -1061,8 +1105,8 @@
     "service": "General",
     "feature": "December 04, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_04_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 33,
     "date": "2025-12-04"
   },
@@ -1083,8 +1127,8 @@
     "service": "General",
     "feature": "December 03, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_03_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 34,
     "date": "2025-12-03"
   },
@@ -1116,8 +1160,8 @@
     "service": "General",
     "feature": "December 02, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_02_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 35,
     "date": "2025-12-02"
   },
@@ -1138,8 +1182,8 @@
     "service": "General",
     "feature": "December 01, 2025",
     "link": "https://docs.cloud.google.com/release-notes#December_01_2025",
-    "status": "Not Supported",
-    "version": "--",
+    "status": "Supported",
+    "version": "v7.15.0",
     "lag": 36,
     "date": "2025-12-01"
   },
