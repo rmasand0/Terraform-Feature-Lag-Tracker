@@ -1,5 +1,16 @@
 [
   {
+    "id": "gcp-january-11--2026",
+    "cloud": "gcp",
+    "service": "General",
+    "feature": "January 11, 2026",
+    "link": "https://docs.cloud.google.com/release-notes#January_11_2026",
+    "status": "Not Supported",
+    "version": "--",
+    "lag": 1,
+    "date": "2026-01-11"
+  },
+  {
     "id": "gcp-january-10--2026",
     "cloud": "gcp",
     "service": "General",
@@ -7,7 +18,7 @@
     "link": "https://docs.cloud.google.com/release-notes#January_10_2026",
     "status": "Not Supported",
     "version": "--",
-    "lag": 1,
+    "lag": 2,
     "date": "2026-01-10"
   },
   {
@@ -18,7 +29,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/larger-managed-database-bundles-lightsail/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 1,
+    "lag": 2,
     "date": "2026-01-09"
   },
   {
@@ -29,7 +40,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-emr-serverless-adds-job-run-level",
     "status": "Not Supported",
     "version": "--",
-    "lag": 1,
+    "lag": 2,
     "date": "2026-01-09"
   },
   {
@@ -40,7 +51,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-rds-sql-server-cross-region-read-replica-in-additional-aws-regions/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2026-01-09"
   },
   {
@@ -51,7 +62,7 @@
     "link": "https://docs.cloud.google.com/release-notes#January_09_2026",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2026-01-09"
   },
   {
@@ -62,7 +73,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-ec2-r8i-r8i-flex-instances-additional-aws-regions",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2026-01-08"
   },
   {
@@ -73,7 +84,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-mq-certificate-based-authentication-mutual-tls-rabbitmq/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2026-01-08"
   },
   {
@@ -84,7 +95,7 @@
     "link": "https://aws.amazon.comabout-aws/whats-new/2026/01/amazon-documentdb-mongodb-compatibility-asia-pacific-jakarta-region",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2026-01-08"
   },
   {
@@ -95,7 +106,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/3p-agent-in-quick/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2026-01-08"
   },
   {
@@ -106,7 +117,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-ec2-m8i-instances-additional-regions/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2026-01-08"
   },
   {
@@ -117,7 +128,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/aws-lambda-dot-net-10/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 2,
+    "lag": 3,
     "date": "2026-01-08"
   },
   {
@@ -128,7 +139,7 @@
     "link": "https://docs.cloud.google.com/release-notes#January_08_2026",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2026-01-08"
   },
   {
@@ -139,7 +150,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/aws-client-vpn-onboarding-quickstart-setup",
     "status": "Not Supported",
     "version": "--",
-    "lag": 3,
+    "lag": 4,
     "date": "2026-01-07"
   },
   {
@@ -183,7 +194,7 @@
     "link": "https://docs.cloud.google.com/release-notes#January_07_2026",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2026-01-07"
   },
   {
@@ -194,7 +205,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/aws-marketplace-seller-reporting-collections/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2026-01-06"
   },
   {
@@ -216,7 +227,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2026/01/amazon-mq-http-based-rabbitmq-brokers/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 4,
+    "lag": 5,
     "date": "2026-01-06"
   },
   {
@@ -238,7 +249,7 @@
     "link": "https://docs.cloud.google.com/release-notes#January_06_2026",
     "status": "Not Supported",
     "version": "--",
-    "lag": 5,
+    "lag": 6,
     "date": "2026-01-06"
   },
   {
@@ -293,7 +304,7 @@
     "link": "https://docs.cloud.google.com/release-notes#January_05_2026",
     "status": "Not Supported",
     "version": "--",
-    "lag": 6,
+    "lag": 7,
     "date": "2026-01-05"
   },
   {
@@ -304,7 +315,7 @@
     "link": "https://azure.microsoft.com/en-us/blog/microsofts-strategic-ai-datacenter-planning-enables-seamless-large-scale-nvidia-rubin-deployments/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 5,
+    "lag": 6,
     "date": "2026-01-05"
   },
   {
@@ -359,7 +370,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_30_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 12,
+    "lag": 13,
     "date": "2025-12-30"
   },
   {
@@ -414,7 +425,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_26_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 16,
+    "lag": 17,
     "date": "2025-12-26"
   },
   {
@@ -436,7 +447,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_24_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 18,
+    "lag": 19,
     "date": "2025-12-24"
   },
   {
@@ -480,7 +491,7 @@
     "link": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-workspaces-secure-browser-webauthn-redirection-chromium-browsers",
     "status": "Not Supported",
     "version": "--",
-    "lag": 18,
+    "lag": 19,
     "date": "2025-12-23"
   },
   {
@@ -568,7 +579,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_23_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 19,
+    "lag": 20,
     "date": "2025-12-23"
   },
   {
@@ -689,7 +700,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_22_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 20,
+    "lag": 21,
     "date": "2025-12-22"
   },
   {
@@ -843,7 +854,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_19_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 23,
+    "lag": 24,
     "date": "2025-12-19"
   },
   {
@@ -1030,7 +1041,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_18_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 24,
+    "lag": 25,
     "date": "2025-12-18"
   },
   {
@@ -1107,7 +1118,7 @@
     "link": "https://azure.microsoft.com/en-us/blog/microsoft-named-a-leader-in-gartner-magic-quadrant-for-ai-application-development-platforms/",
     "status": "Not Supported",
     "version": "--",
-    "lag": 24,
+    "lag": 25,
     "date": "2025-12-17"
   },
   {
@@ -1162,7 +1173,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_14_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 28,
+    "lag": 29,
     "date": "2025-12-14"
   },
   {
@@ -1217,7 +1228,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_11_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 31,
+    "lag": 32,
     "date": "2025-12-11"
   },
   {
@@ -1294,7 +1305,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_06_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 36,
+    "lag": 37,
     "date": "2025-12-06"
   },
   {
@@ -1305,7 +1316,7 @@
     "link": "https://docs.cloud.google.com/release-notes#December_05_2025",
     "status": "Not Supported",
     "version": "--",
-    "lag": 37,
+    "lag": 38,
     "date": "2025-12-05"
   },
   {
